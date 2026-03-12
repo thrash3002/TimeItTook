@@ -16,10 +16,10 @@
     <Compile Update="View\CreateDefaultTaskWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\CreateProjectTypeWindow.xaml.cs">
+    <Compile Update="View\CreateGoalTypeWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\CreateProjectWindow.xaml.cs">
+    <Compile Update="View\CreateGoalWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\CreateTaskWindow.xaml.cs">

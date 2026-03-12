@@ -7,6 +7,6 @@
 
         public IEnumerable<TaskInterval> Intervals { get; set; } = Enumerable.Empty<TaskInterval>();
 
-        public IEnumerable<Project> Projects { get; set; } = Enumerable.Empty<Project>();
+        public IEnumerable<Goal> Goals { get; set; } = Enumerable.Empty<Goal>();
     }
 }

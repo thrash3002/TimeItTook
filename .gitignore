@@ -4,3 +4,5 @@ TimeItTook.Wpf/bin/
 TimeItTook.Wpf/obj/
 TimeItTook.Wpf/TimeItTook.Wpf.csproj.user
 .vs/
+obj/
+bin/

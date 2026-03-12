@@ -3,6 +3,6 @@
     public class DefaultTask : TaskBase
     {
         public TimeSpan? Deadline { get; set; }
-        public IEnumerable<ProjectType> ProjectTypes { get; set; } = Enumerable.Empty<ProjectType>();
+        public IEnumerable<GoalType> GoalTypes { get; set; } = Enumerable.Empty<GoalType>();
     }
 }
