@@ -1,7 +1,7 @@
-﻿<Application x:Class="TimeItTook.App"
+﻿<Application x:Class="TimeItTook.Wpf.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:TimeItTook"
+             xmlns:local="clr-namespace:TimeItTook.Wpf"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
          

@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace TimeItTook
+namespace TimeItTook.Wpf
 {
     public partial class App : Application
     {

@@ -1,0 +1,12 @@
+﻿namespace TimeItTook.Core.Model
+{
+    public class Task : TaskBase
+    {
+        public DateTime? Deadline { get; set; }
+        public bool IsComplete { get; set; } = false;
+
+        public IEnumerable<TaskInterval> Intervals { get; set; } = Enumerable.Empty<TaskInterval>();
+
+        public IEnumerable<Project> Projects { get; set; } = Enumerable.Empty<Project>();
+    }
+}
