@@ -1,6 +1,6 @@
 ﻿namespace TimeItTook.Core.Test.ViewModelTest
 {
-    public class CreateGoalWindowViewModelTest
+    public class AddNewGoalTypeWindowViewModelTest
     {
         [Fact]
         public void Test1()

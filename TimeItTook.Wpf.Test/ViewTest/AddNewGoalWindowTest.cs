@@ -1,6 +1,6 @@
 ﻿namespace TimeItTook.Wpf.Test.ViewTest
 {
-    public class CreateTaskWindowTest
+    public class AddNewGoalWindowTest
     {
     }
 }

@@ -2,7 +2,7 @@
 
 namespace TimeItTook.ViewModel
 {
-    public class CreateDefaultTaskWindowViewModel : ObservableObject
+    public class AddNewGoalTypeWindowViewModel : ObservableObject
     {
     }
 }

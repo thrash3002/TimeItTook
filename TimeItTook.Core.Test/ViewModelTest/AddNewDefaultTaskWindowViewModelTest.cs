@@ -1,6 +1,6 @@
 ﻿namespace TimeItTook.Core.Test.ViewModelTest
 {
-    public class CreateTaskWindowViewModelTest
+    public class AddNewDefaultTaskWindowViewModelTest
     {
         [Fact]
         public void Test1()

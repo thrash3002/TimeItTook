@@ -3,11 +3,11 @@ using TimeItTook.ViewModel;
 
 namespace TimeItTook.View
 {
-    public partial class CreateGoalWindow : Window
+    public partial class AddNewTaskWindow : Window
     {
-        public CreateGoalWindow()
+        public AddNewTaskWindow()
         {
-            DataContext = new CreateGoalWindowViewModel();
+            DataContext = new AddNewTaskWindowViewModel();
             InitializeComponent();
         }
     }
