@@ -1,4 +1,6 @@
 <Solution>
+  <Project Path="TimeItTook.Core.Test/TimeItTook.Core.Test.csproj" Id="5fb08473-89ae-4da4-9a9f-d92442b57672" />
   <Project Path="TimeItTook.Core/TimeItTook.Core.csproj" Id="4d3dba58-fc59-4fe4-98be-3e5e9af4fcdc" />
+  <Project Path="TimeItTook.Wpf.Test/TimeItTook.Wpf.Test.csproj" Id="f9605a50-f866-43a2-bd75-9547a7bba357" />
   <Project Path="TimeItTook.Wpf/TimeItTook.Wpf.csproj" Id="6a20d808-199f-466f-a8ef-ddf01265db28" />
 </Solution>
