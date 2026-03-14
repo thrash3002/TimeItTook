@@ -33,7 +33,7 @@
         }
 
         [Fact]
-        public void SelectedTaskReplacesPreviouslySelectedTaskInActiveTaskSectionWhenTwoTasksAlreadyRunning()
+        public void SelectedTaskReplacesPreviouslySelectedTaskInActiveTaskSection()
         {
 
         }
@@ -69,13 +69,13 @@
         }
 
         [Fact]
-        public void MarkAsCompleteButtonGreyedOutUnlessStartTimeHasBeenSet()
+        public void MarkAsCompletedButtonGreyedOutUnlessStartTimeHasBeenSet()
         {
 
         }
 
         [Fact]
-        public void MarkAsCompleteButtonGreyedOutUnlessPrerequisiteTasksAreAllCompleted()
+        public void MarkAsCompletedButtonGreyedOutUnlessPrerequisiteTasksAreAllCompleted()
         {
 
         }
@@ -105,12 +105,111 @@
         }
 
         [Fact]
+        public void IsCompletedColumnHiddenInTaskListIfShowCompletedCheckBoxIsUnchecked()
+        {
+
+        }
+
+        [Fact]
         public void CompletedTasksShowInTaskListIfShowCompletedCheckBoxIsChecked()
         {
 
         }
 
+        [Fact]
+        public void IsCompletedColumnShowsInTaskListIfShowCompletedCheckBoxIsChecked()
+        {
 
-        // TODO - filter and sort task list
+        }
+
+        [Fact]
+        public void TaskListCanBeFilteredToShowTodayOnly()
+        {
+
+        }
+
+        [Fact]
+        public void TaskListCanBeFilteredToShowWeekOnly()
+        {
+
+        }
+
+        [Fact]
+        public void TaskListCanBeFilteredToShowFortnightOnly()
+        {
+
+        }
+
+        [Fact]
+        public void TaskListCanBeFilteredToShowMonthOnly()
+        {
+
+        }
+
+        [Fact]
+        public void TaskListCanBeFilteredToShow10TasksOnly()
+        {
+
+        }
+
+        [Fact]
+        public void TaskListCanBeFilteredToShow25TasksOnly()
+        {
+
+        }
+
+        [Fact]
+        public void TaskListCanBeFilteredToShow50TasksOnly() // TODO: is this necessary?
+        {
+
+        }
+
+        [Fact]
+        public void TaskListShowsAllIncompleteTasksOnlyByDefault() // i.e. no other filters
+        {
+
+        }
+
+        [Fact]
+        public void TasksAreOrderedByDeadlineByDefault()
+        {
+
+        }
+
+        [Fact]
+        public void TasksAreOrderedByDeadlineAndThenPriorityByDefault()
+        {
+
+        }
+
+        [Fact]
+        public void ClickNameColumnHeaderToOrderByName()
+        {
+
+        }
+
+        [Fact]
+        public void ClickEstimateColumnHeaderToOrderByEstimate()
+        {
+
+        }
+
+        [Fact]
+        public void ClickDeadlineColumnHeaderToReturnToDefaultOrder()
+        {
+
+        }
+
+        [Fact]
+        public void ClickPriorityColumnHeaderToOrderByPriority()
+        {
+
+        }
+
+        [Fact]
+        public void ClickIsCompletedColumnHeaderToOrderByIsCompleted()
+        {
+
+        }
     }
 }
