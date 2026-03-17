@@ -13,16 +13,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="View\CreateDefaultTaskWindow.xaml.cs">
+    <Compile Update="View\AddNewDefaultTaskWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\CreateGoalTypeWindow.xaml.cs">
+    <Compile Update="View\AddNewGoalTypeWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\CreateGoalWindow.xaml.cs">
+    <Compile Update="View\AddNewGoalWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\CreateTaskWindow.xaml.cs">
+    <Compile Update="View\AddNewTaskWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
