@@ -14,48 +14,22 @@ namespace TimeItTook.Wpf.Test.ViewTest
         [Fact]
         public void ClickingOnGoalTabShowsGoalPage()
         {
-            using var rig = new TestRig(testRigConfig);
-            Assert.NotNull(rig.MainWindow);
-            var outputElement = rig.MainWindow?.FindFirstDescendant(cf => cf.ByAutomationId("TextBoxOutput")).AsTextBox();
-            var incrementButton = rig.MainWindow?.FindFirstDescendant(cf => cf.ByAutomationId("ButtonIncrement")).AsButton();
-            var decrementButton = rig.MainWindow?.FindFirstDescendant(cf => cf.ByAutomationId("ButtonDecrement")).AsButton();
-            Assert.NotNull(outputElement);
-            Assert.NotNull(incrementButton);
-            Assert.NotNull(incrementButton);
-            if (int.TryParse(outputElement?.Text, out int initialValue))
-            {
-                incrementButton?.Click();
-                if (int.TryParse(outputElement?.Text, out int incrementValue))
-                {
-                    Assert.Equal(initialValue + 1, incrementValue);
-                }
-                else
-                {
-                    Assert.Fail("increment value is not an integer. Value was " + outputElement?.Text);
-                }
-                decrementButton?.Click();
-                if (int.TryParse(outputElement?.Text, out int decrementValue))
-                {
-                    Assert.Equal(initialValue, decrementValue);
-                }
-                else
-                {
-                    Assert.Fail("decrement value is not an integer. Value was " + outputElement?.Text);
-                }
-                decrementButton?.Click();
-                if (int.TryParse(outputElement?.Text, out decrementValue))
-                {
-                    Assert.Equal(initialValue - 1, decrementValue);
-                }
-                else
-                {
-                    Assert.Fail("second decrement value is not an integer. Value was " + outputElement?.Text);
-                }
-            }
-            else
-            {
-                Assert.Fail("initial value is not an integer. Value was " + outputElement?.Text + ", output element is " + (outputElement is null ? "null" : "not null"));
-            }
+            // Arrange
+            using var testRig = new TestRig(testRigConfig);
+            Assert.True(
+                testRig.FindControlByName("TabSwitcher", out var tabControlElement));
+            var tabControl = tabControlElement.AsTab();
+            Assert.True(
+                testRig.FindControlByName("TaskTab", out var taskTab));
+            Assert.True(
+                testRig.FindControlByName("GoalTab", out var goalTab));
+
+            // Act
+            taskTab?.AsTabItem().Click();
+            goalTab?.AsTabItem().Click();
+
+            // Assert
+            Assert.Equal(tabControl?.SelectedTabItem?.AutomationId, goalTab?.AutomationId);
         }
 
         [Fact]

@@ -1,11 +1,35 @@
-﻿namespace TimeItTook.Wpf.Test.ViewTest
+﻿using FlaUI.Core.AutomationElements;
+
+namespace TimeItTook.Wpf.Test.ViewTest
 {
-    public class MainWindowTaskTabTest
+    public class MainWindowTaskTabTest : IClassFixture<TestRigConfig>
     {
+        TestRigConfig testRigConfig;
+
+        public MainWindowTaskTabTest(TestRigConfig config)
+        {
+            testRigConfig = config;
+        }
+
         [Fact]
         public void ClickingOnTaskTabShowsTaskPage()
         {
+            // Arrange
+            using var testRig = new TestRig(testRigConfig);
+            Assert.True(
+                testRig.FindControlByName("TabSwitcher", out var tabControlElement));
+            var tabControl = tabControlElement.AsTab();
+            Assert.True(
+                testRig.FindControlByName("TaskTab", out var taskTab));
+            Assert.True(
+                testRig.FindControlByName("GoalTab", out var goalTab));
 
+            // Act
+            goalTab?.AsTabItem().Click();
+            taskTab?.AsTabItem().Click();
+
+            // Assert
+            Assert.Equal(tabControl?.SelectedTabItem?.AutomationId, taskTab?.AutomationId);
         }
 
         [Fact]

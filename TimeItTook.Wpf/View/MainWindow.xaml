@@ -3,20 +3,27 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:TimeItTook.View"
+        xmlns:local="clr-namespace:TimeItTook.View" xmlns:usercontrols="clr-namespace:TimeItTook.Wpf.View.UserControls"
         mc:Ignorable="d"
-        Title="MainWindow" Height="250" Width="400"
+        Title="MainWindow" Height="450" Width="800"
         ThemeMode="System">
     <Grid>
-        <StackPanel Background="BlanchedAlmond" Width="400" Height="250">
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" >
-                <Label Name="LabelOutput" FontSize="22" Content="Output: " VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10" />
-                <TextBox Name="TextBoxOutput" FontSize="22" Text="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10" />
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <Button Name="ButtonIncrement" FontSize="22" Content="+" Width="50" Margin="10" Click="ButtonIncrement_Click" />
-                <Button Name="ButtonDecrement" FontSize="22" Content="-" Width="50" Margin="10" Click="ButtonDecrement_Click"/>
-            </StackPanel>
-        </StackPanel>
+        <TabControl Name="TabSwitcher">
+            <TabItem Name="TaskTab" Header="Tasks">
+                <StackPanel>
+                    <Button Name="NewTask" Content="New Task" />
+                    <StackPanel Name="ActiveTaskSection">
+                        <usercontrols:ActiveTaskItem Visibility="Hidden"></usercontrols:ActiveTaskItem>
+                        <usercontrols:ActiveTaskItem Visibility="Hidden"></usercontrols:ActiveTaskItem>
+                        <usercontrols:ActiveTaskItem Visibility="Hidden"></usercontrols:ActiveTaskItem>
+                    </StackPanel>
+                </StackPanel>
+            </TabItem>
+            <TabItem Name="GoalTab" Header="Goals">
+                <StackPanel>
+                    <Button Name="NewGoal" Content="New Goal" />
+                </StackPanel>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>

@@ -2,18 +2,20 @@
 using FlaUI.Core.AutomationElements;
 using FlaUI.Core.Conditions;
 using FlaUI.UIA3;
-using Microsoft.Extensions.Configuration;
 
+// Turning off XUnit parallel test runs for this project since this is not
+// possible with FlaUI automation competing for input controls
+[assembly: Xunit.CollectionBehavior(DisableTestParallelization = true)]
 namespace TimeItTook.Wpf.Test
 {
-    internal class TestRig : IDisposable
+    public class TestRig : IDisposable
     {
         internal Application? UIApp { get; set; }
         internal UIA3Automation Uia3 { get; set; }
         internal Window? MainWindow { get; set; }
         internal ConditionFactory UIConditionFactory { get; set; }
 
-        internal TestRig(TestRigConfig config)
+        public TestRig(TestRigConfig config)
         {
             Uia3 = new()
             {
@@ -29,6 +31,13 @@ namespace TimeItTook.Wpf.Test
             }
             if (MainWindow is null) throw new NullReferenceException("MainWindow init failed");
             UIConditionFactory = new(new UIA3PropertyLibrary());
+        }
+
+        public bool FindControlByName(string propName, out AutomationElement? control)
+        {
+            control = MainWindow?
+                .FindFirstDescendant(cf => cf.ByAutomationId(propName));
+            return control != null;
         }
 
         public void Dispose()
