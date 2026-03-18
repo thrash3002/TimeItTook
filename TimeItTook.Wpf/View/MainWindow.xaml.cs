@@ -5,9 +5,8 @@ namespace TimeItTook.View
 {
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        public MainWindow(MainWindowViewModel viewModel)
         {
-            var viewModel = new MainWindowViewModel();
             DataContext = viewModel;
             InitializeComponent();
         }
