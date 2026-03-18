@@ -9,8 +9,6 @@ namespace TimeItTook.Wpf
 {
     public partial class App : Application
     {
-        // TODO: https://medium.com/@shanto462/dependency-injection-in-wpf-a-complete-implementation-guide-468abcf95337
-
         private IServiceProvider serviceProvider;
 
         protected override void OnStartup(StartupEventArgs e)
