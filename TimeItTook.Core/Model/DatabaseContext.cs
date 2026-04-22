@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
 
 namespace TimeItTook.Core.Model
 {
@@ -22,6 +21,39 @@ namespace TimeItTook.Core.Model
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlite($"Data Source={DatabasePath}");
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<DefaultTask>()
+                .HasKey(dt => dt.ID);
+            modelBuilder.Entity<DefaultTask>()
+                .HasMany(dt => dt.GoalTypes)
+                .WithMany(g => g.DefaultTasks);
+
+            modelBuilder.Entity<Goal>()
+                .HasKey(g => g.ID);
+            modelBuilder.Entity<Goal>()
+                .HasOne(g => g.GoalType)
+                .WithMany()
+                .HasForeignKey(g => g.GoalTypeID)
+                .IsRequired(false);
+            modelBuilder.Entity<Goal>()
+                .HasMany(g => g.Tasks)
+                .WithMany(t => t.Goals);
+
+            modelBuilder.Entity<GoalType>()
+                .HasKey(gt => gt.ID);
+
+            modelBuilder.Entity<Task>()
+                .HasKey(t => t.ID);
+            modelBuilder.Entity<Task>()
+                .HasMany(t => t.Intervals)
+                .WithOne(ti => ti.Task)
+                .HasForeignKey(ti => ti.TaskID);
+            
+            modelBuilder.Entity<TaskInterval>()
+                .HasKey(g => g.ID);
         }
     }
 }

@@ -4,6 +4,7 @@
     {
         public Guid ID { get; set; } = Guid.NewGuid();
         public Guid TaskID { get; set; }
+        public Task? Task { get; set; }
         public DateTime StartTime { get; set; }
         public TimeSpan Duration { get; set; }
     }
