@@ -25,6 +25,7 @@ namespace TimeItTook.Core.Model
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Ignore<TaskBase>();
             modelBuilder.Entity<DefaultTask>()
                 .HasKey(dt => dt.ID);
             modelBuilder.Entity<DefaultTask>()
