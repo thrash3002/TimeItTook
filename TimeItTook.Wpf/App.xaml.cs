@@ -1,9 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using System.Windows;
 using TimeItTook.Core.Model;
+using TimeItTook.Core.Service;
+using TimeItTook.Core.Util;
 using TimeItTook.View;
 using TimeItTook.ViewModel;
+using TimeItTook.Wpf.Service;
 
 namespace TimeItTook.Wpf
 {
@@ -29,8 +31,13 @@ namespace TimeItTook.Wpf
             services.AddLogging();
             services.AddDbContext<DatabaseContext>();
 
-            services.AddSingleton<MainWindowViewModel>(); // TODO - use an interface
+            services.AddSingleton<IUserInteractionService, UserInteractionService>();
+
+            services.AddSingleton<MainWindowViewModel>();
             services.AddSingleton<MainWindow>();
+
+            services.AddFactory<AddNewTaskWindowViewModel>();
+            services.AddFactory<AddNewTaskWindow>();
 
             serviceProvider = services.BuildServiceProvider();
         }

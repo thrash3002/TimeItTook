@@ -40,9 +40,14 @@ namespace TimeItTook.Wpf.Test
             return control != null;
         }
 
+        public Window[] GetAllTopLevelWindows() => UIApp!.GetAllTopLevelWindows(Uia3);
+
         public void Dispose()
         {
-            MainWindow?.Close();
+            foreach(var window in GetAllTopLevelWindows())
+            {
+                window.Close();
+            }
             UIApp?.Close();
             UIApp?.Dispose();
             Uia3.Dispose();

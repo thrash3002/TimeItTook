@@ -5,9 +5,9 @@ namespace TimeItTook.View
 {
     public partial class AddNewTaskWindow : Window
     {
-        public AddNewTaskWindow()
+        public AddNewTaskWindow(AddNewTaskWindowViewModel viewModel)
         {
-            DataContext = new AddNewTaskWindowViewModel();
+            DataContext = viewModel;
             InitializeComponent();
         }
     }

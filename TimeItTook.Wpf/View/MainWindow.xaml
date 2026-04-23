@@ -5,17 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TimeItTook.View" xmlns:usercontrols="clr-namespace:TimeItTook.Wpf.View.UserControls"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
+        Title="TimeItTook" Height="450" Width="800"
         ThemeMode="System">
     <Grid>
         <TabControl Name="TabSwitcher">
             <TabItem Name="TaskTab" Header="Tasks">
                 <StackPanel>
-                    <Button Name="NewTask" Content="New Task" />
+                    <Button Name="NewTask" Content="New Task" Command="{Binding NewTaskCommand}" />
                     <StackPanel Name="ActiveTaskSection">
                         <usercontrols:ActiveTaskItem Visibility="Hidden"></usercontrols:ActiveTaskItem>
                         <usercontrols:ActiveTaskItem Visibility="Hidden"></usercontrols:ActiveTaskItem>
                         <usercontrols:ActiveTaskItem Visibility="Hidden"></usercontrols:ActiveTaskItem>
+                        <DataGrid
+                            ItemsSource="{Binding Tasks}"
+                            AutoGenerateColumns="False">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="ID" Binding="{Binding ID}" Width="1*" />
+                                <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="6*" />
+                                <DataGridTextColumn Header="Estimate" Binding="{Binding Estimate}" Width="1*" />
+                                <DataGridTextColumn Header="Deadline" Binding="{Binding Deadline}" Width="2*" />
+                            </DataGrid.Columns>
+                        </DataGrid>
                     </StackPanel>
                 </StackPanel>
             </TabItem>

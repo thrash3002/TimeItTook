@@ -25,8 +25,8 @@ namespace TimeItTook.Wpf.Test.ViewTest
                 testRig.FindControlByName("GoalTab", out var goalTab));
 
             // Act
-            goalTab?.AsTabItem().Click();
-            taskTab?.AsTabItem().Click();
+            goalTab!.AsTabItem().Click();
+            taskTab!.AsTabItem().Click();
 
             // Assert
             Assert.Equal(tabControl?.SelectedTabItem?.AutomationId, taskTab?.AutomationId);
@@ -35,7 +35,16 @@ namespace TimeItTook.Wpf.Test.ViewTest
         [Fact]
         public void ClickingAddTaskButtonShowsCreateTaskModal()
         {
+            using var testRig = new TestRig(testRigConfig);
+            // Arrange
+            Assert.True(
+                testRig.FindControlByName("NewTask", out var newTaskButtonElement));
 
+            // Act
+            newTaskButtonElement!.Click();
+
+            // Assert
+            Assert.Contains(testRig.GetAllTopLevelWindows(), window => window.AutomationId.Equals("Window_AddNewTask"));
         }
 
         [Fact]
