@@ -5,7 +5,7 @@ namespace TimeItTook.Wpf.Test
     public class TestRigConfig : IDisposable 
         // NOTE: IDisposable is only implemented so that the config can act as a fixture for XUnit IClassFixture
     {
-        // Test directory should be "/TimeItTook.Wpf.Test/bin/Debug/net10.0"
+        // Test directory should be "/TimeItTook.Wpf.Test/bin/Debug/net10.0-windows", so 4x ../ needed
         private static string DEFAULT_APP_PATH = "../../../../TimeItTook.Wpf/bin/Debug/net10.0-windows/TimeItTook.Wpf.exe";
         private static int DEFAULT_MAX_RETRIES = 3;
         private static TimeSpan DEFAULT_CONNECTION_TIMEOUT_SECONDS = TimeSpan.FromSeconds(5); // default is 2 seconds

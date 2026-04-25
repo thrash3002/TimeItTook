@@ -17,6 +17,7 @@
                         <usercontrols:ActiveTaskItem Visibility="Hidden"></usercontrols:ActiveTaskItem>
                         <usercontrols:ActiveTaskItem Visibility="Hidden"></usercontrols:ActiveTaskItem>
                         <DataGrid
+                            Name="TaskGrid"
                             ItemsSource="{Binding Tasks}"
                             AutoGenerateColumns="False">
                             <DataGrid.Columns>
@@ -31,7 +32,7 @@
             </TabItem>
             <TabItem Name="GoalTab" Header="Goals">
                 <StackPanel>
-                    <Button Name="NewGoal" Content="New Goal" />
+                    <Button Name="NewGoal" Content="New Goal" Command="{Binding NewGoalCommand}" />
                 </StackPanel>
             </TabItem>
         </TabControl>

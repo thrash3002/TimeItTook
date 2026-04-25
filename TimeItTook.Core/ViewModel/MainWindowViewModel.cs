@@ -11,13 +11,16 @@ namespace TimeItTook.ViewModel
     {
         private readonly IUserInteractionService interactionService;
         private readonly IAbstractFactory<AddNewTaskWindowViewModel> newTaskViewModelFactory;
+        private readonly IAbstractFactory<AddNewGoalWindowViewModel> newGoalViewModelFactory;
 
         public MainWindowViewModel(
             IUserInteractionService userInteractionService,
-            IAbstractFactory<AddNewTaskWindowViewModel> addNewTaskViewModelFactory)
+            IAbstractFactory<AddNewTaskWindowViewModel> addNewTaskViewModelFactory,
+            IAbstractFactory<AddNewGoalWindowViewModel> addNewGoalViewModelFactory)
         {
             interactionService = userInteractionService;
             newTaskViewModelFactory = addNewTaskViewModelFactory;
+            newGoalViewModelFactory = addNewGoalViewModelFactory;
         }
 
         [RelayCommand]
@@ -26,6 +29,13 @@ namespace TimeItTook.ViewModel
             interactionService.RequestInteraction(newTaskViewModelFactory.Create());
         }
 
-        public ObservableCollection<Core.Model.Task> Tasks { get; set; } = new ObservableCollection<Core.Model.Task>();
+        [RelayCommand]
+        public void NewGoal()
+        {
+            interactionService.RequestInteraction(newGoalViewModelFactory.Create());
+        }
+
+        public ObservableCollection<Core.Model.Task> Tasks { get; set; } = [];
+        public ObservableCollection<Goal> Goals { get; set; } = [];
     }
 }

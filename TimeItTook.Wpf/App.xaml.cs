@@ -11,17 +11,17 @@ namespace TimeItTook.Wpf
 {
     public partial class App : Application
     {
-        private IServiceProvider serviceProvider;
+        private IServiceProvider? serviceProvider;
 
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
             ConfigureServiceProvider();
 
-            using var context = serviceProvider.GetRequiredService<DatabaseContext>();
+            using var context = serviceProvider!.GetRequiredService<DatabaseContext>();
             context.Database.EnsureCreated();
 
-            var mainWindow = serviceProvider.GetRequiredService<MainWindow>();
+            var mainWindow = serviceProvider!.GetRequiredService<MainWindow>();
             mainWindow.Show();
         }
 
@@ -38,6 +38,9 @@ namespace TimeItTook.Wpf
 
             services.AddFactory<AddNewTaskWindowViewModel>();
             services.AddFactory<AddNewTaskWindow>();
+
+            services.AddFactory<AddNewGoalWindowViewModel>();
+            services.AddFactory<AddNewGoalWindow>();
 
             serviceProvider = services.BuildServiceProvider();
         }

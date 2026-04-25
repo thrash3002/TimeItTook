@@ -4,12 +4,12 @@ namespace TimeItTook.Core.Util
 {
     public static class ServiceCollectionExtensions
     {
-        public static void AddFactory<TModal>(this IServiceCollection services)
-            where TModal : class
+        public static void AddFactory<T>(this IServiceCollection services)
+            where T : class
         {
-            services.AddTransient<TModal>();
-            services.AddSingleton<Func<TModal>>(s => () => s.GetService<TModal>()!);
-            services.AddSingleton<IAbstractFactory<TModal>, AbstractFactory<TModal>>();
+            services.AddTransient<T>();
+            services.AddSingleton<Func<T>>(s => () => s.GetService<T>()!);
+            services.AddSingleton<IAbstractFactory<T>, AbstractFactory<T>>();
         }
     }
 }

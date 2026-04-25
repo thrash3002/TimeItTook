@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TimeItTook.View"
         mc:Ignorable="d"
-        Title="AddNewGoalWindow" Height="450" Width="800">
+        Title="New Goal" Height="400" Width="500"
+        Name="Window_AddNewGoal">
     <Grid>
         
     </Grid>

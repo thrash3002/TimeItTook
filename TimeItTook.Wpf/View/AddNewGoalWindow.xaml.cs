@@ -5,9 +5,9 @@ namespace TimeItTook.View
 {
     public partial class AddNewGoalWindow : Window
     {
-        public AddNewGoalWindow()
+        public AddNewGoalWindow(AddNewGoalWindowViewModel viewModel)
         {
-            DataContext = new AddNewGoalWindowViewModel();
+            DataContext = viewModel;
             InitializeComponent();
         }
     }

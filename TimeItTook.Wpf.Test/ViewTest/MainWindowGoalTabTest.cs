@@ -25,8 +25,8 @@ namespace TimeItTook.Wpf.Test.ViewTest
                 testRig.FindControlByName("GoalTab", out var goalTab));
 
             // Act
-            taskTab?.AsTabItem().Click();
-            goalTab?.AsTabItem().Click();
+            taskTab!.AsTabItem().Click();
+            goalTab!.AsTabItem().Click();
 
             // Assert
             Assert.Equal(tabControl?.SelectedTabItem?.AutomationId, goalTab?.AutomationId);
@@ -41,7 +41,19 @@ namespace TimeItTook.Wpf.Test.ViewTest
         [Fact]
         public void ClickingAddGoalButtonShowsCreateGoalModal()
         {
+            using var testRig = new TestRig(testRigConfig);
+            // Arrange
+            Assert.True(
+                testRig.FindControlByName("GoalTab", out var goalTab));
+            goalTab!.AsTabItem().Click();
+            Assert.True(
+                testRig.FindControlByName("NewGoal", out var newGoalButtonElement));
 
+            // Act
+            newGoalButtonElement!.AsButton().Click();
+
+            // Assert
+            Assert.Contains(testRig.GetAllTopLevelWindows(), window => window.AutomationId.Equals("Window_AddNewGoal"));
         }
 
         [Fact]
